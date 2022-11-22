@@ -24,5 +24,6 @@ jobs:
 
     - name: echo msbuild path
       run: |
-        msbuild *.sln /p:Configuration=Release
         echo "PATH: ${{ steps.setup_msbuild_path.outputs.msbuildPath }}"
+        dir
+        msbuild *.sln /p:Configuration=Release
