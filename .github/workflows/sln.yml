@@ -1,4 +1,4 @@
-name: .NET Build & Test
+name: sln comile
 
 on: workflow_dispatch
 
@@ -22,8 +22,13 @@ jobs:
       id: setup_msbuild_path
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: echo msbuild path
+    - name: compile sln
       run: |
-        echo "PATH: ${{ steps.setup_msbuild_path.outputs.msbuildPath }}"
-        dir
+        #echo "PATH: ${{ steps.setup_msbuild_path.outputs.msbuildPath }}"
+        #dir
         msbuild PrintSpoofer.sln /p:Configuration=Release
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: x64-compile
+        path: /x64/Release # or path/to/artifact
