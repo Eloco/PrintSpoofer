@@ -31,4 +31,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: x64-compile
-        path: /x64/Release # or path/to/artifact
+        path: \x64\Release # or path/to/artifact
