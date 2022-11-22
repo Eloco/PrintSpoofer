@@ -20,10 +20,10 @@ jobs:
     # 添加 MSBuild.exe 到环境变量: https://github.com/microsoft/setup-msbuild
     - name: Add msbuild to PATH
       id: setup_msbuild_path
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: echo msbuild path
       run: |
         echo "PATH: ${{ steps.setup_msbuild_path.outputs.msbuildPath }}"
         dir
-        msbuild *.sln /p:Configuration=Release
+        msbuild PrintSpoofer.sln /p:Configuration=Release
